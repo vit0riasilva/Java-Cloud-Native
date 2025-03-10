@@ -23,5 +23,5 @@
 hs_err_pid*
 replay_pid*
 java-basic/.vscode/settings.json
-projects/sistema-smart-tv/settings.json
+projects/sistema-smart-tv/.vscode/settings.json
 projects/conta-banco/.vscode/settings.json
