@@ -1,17 +1,25 @@
+import apps.FacebookMessenger;
+import apps.MSNMessenger;
+import apps.ServicoMensagemInstantanea;
+import apps.Telegram;
+
 public class Computador {
     public static void main(String[] args) {
-        MSNMessenger msn = new MSNMessenger();
-        FacebookMessenger face = new FacebookMessenger();
-        Telegram tlg = new Telegram();
+        
+        ServicoMensagemInstantanea smi = null;
 
-        System.out.println("MSN");
-        msn.enviarMensagem();
+        String appEscolhido = "fbk";
 
-        System.out.println("Facebook");
-        face.enviarMensagem();
+        if (appEscolhido.equals("msn")) {
+            smi = new MSNMessenger();
+        } else if (appEscolhido.equals("fbk")) {
+            smi = new FacebookMessenger();
+        } else if (appEscolhido.equals("tlg")) {
+            smi = new Telegram();
+        }
 
-        System.out.println("Telegram");
-        tlg.enviarMensagem();
+        smi.enviarMensagem();
+        smi.receberMensagem();
 
     }
 }
