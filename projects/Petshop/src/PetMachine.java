@@ -23,8 +23,9 @@ public class PetMachine {
             System.out.println("A capacidade de água da máquina está no máximo");
             return;
         }
-
         agua += 2;
+        System.out.println("+ 2l de água adicionados");
+        System.out.println("Total de água: " + agua);
     }
 
     public void adicionarXampu() {
@@ -33,20 +34,11 @@ public class PetMachine {
             return;
         }
 
-        agua += 2;
+        xampu += 2;
+        System.out.println("+ 2l de xampu adicionados");
+        System.out.println("Total de xampu: " + xampu);
     }
 
-    public int getAgua() {
-        return agua;
-    }
-
-    public int getXampu() {
-        return xampu;
-    }
-
-    public boolean temPet() {
-        return pet != null;
-    } 
 
     public void setPet(Pet pet) {
         if (!this.clean) {
@@ -64,19 +56,36 @@ public class PetMachine {
     }
 
     public void retirarPet() {
+        if (this.pet == null) {
+            System.out.println("A maquina está vazia!");
+            return;
+        }
+        
         this.clean = this.pet.isClean();
 
         
-        System.out.println("O pet " + this.pet.getName() + "foi retirado da máquina");
+        System.out.println("O pet " + this.pet.getName() + " foi retirado da máquina");
         this.pet = null;
     }
 
     public void lavarMaquina() {
-        this.agua -= 10;
-        this.xampu -= 2;
+        this.agua -= 3;
+        this.xampu -= 1;
         this.clean = true;
         System.out.println("A máquina foi limpa");
     }
+
+    public int getAgua() {
+        return agua;
+    }
+
+    public int getXampu() {
+        return xampu;
+    }
+
+    public boolean temPet() {
+        return pet != null;
+    } 
 
 
 }
