@@ -10,7 +10,7 @@ import java.util.Scanner;
  * 3 - DEPOSITAR DINHEIRO ok
  * 4 - SACAR DINHEIRO OK
  * 5 - PAGAR UM BOLETO OK
- * 6 - VERIFICAR SE A CONTA ESTÁ USANDO CHEGUE ESPECIAL
+ * 6 - VERIFICAR SE A CONTA ESTÁ USANDO CHEGUE ESPECIAL OK
  * 
  * REGRAS:
  * a CB deve ter um limite de cheque especial somado ao saldo da conta;
@@ -29,6 +29,7 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         Scanner scanner = new Scanner(System.in);
+        ContaBancaria cb = new ContaBancaria();
         int opcao; 
 
         do {
@@ -45,9 +46,14 @@ public class App {
             opcao = scanner.nextInt();
 
             switch (opcao) {
-                case 1 -> System.out.println("consulta saldo");
-                case 2 -> System.out.println("consulta CE");
-                case 3 -> System.out.println("consulta saldo");
+                case 1 -> cb.consultarSaldo();
+                case 2 -> cb.consultarChequeEspecial();
+                case 3 -> cb.depositarDinheiro();
+                case 4 -> cb.sacarDinheiro();
+                case 5 -> cb.pagarBoleto();
+                case 6 -> cb.verificarUsoChequeEspecial();
+                case 0 -> System.exit(0);
+                default -> System.out.println("Opção Invalida");
             }
         } while(opcao != 0);
 
