@@ -1,25 +1,27 @@
 import java.util.Scanner;
 
 public class App {
+
+    
+
     public static void main(String[] args) throws Exception {
         @SuppressWarnings("resource")
         Scanner scanner = new Scanner(System.in);
-        Car fusca = new Car();
+        final Car fusca = new Car();
         int op;
-
+        System.out.println("___________________________________________________");
         do {
-            System.out.println("=========================");
-            System.out.println("WELCOME");
-            System.out.println("CAR'S DASHBOARD");
-            System.out.println("1 - TURN ON CAR");
-            System.out.println("2 - TURN OFF CAR");
-            System.out.println("3 - SPEED UP");
-            System.out.println("4 - SLOW DOWN");
-            System.out.println("5 - TURN RIGH");
-            System.out.println("6 - TURN LEFT");
-            System.out.println("7 - CHECK SPEED");
-            System.out.println("8 - CHANGE MARCH");
+            System.out.println("WELCOME TO CAR'S DASHBOARD");
+            System.out.println("=====================================================================");
+            System.out.println("[STATUS: " + fusca.isCarOn() + "] || [SPEED: " + fusca.getSpeed() + "]");
+            System.out.println("[MARCH: " + fusca.getMarch() + "] || []");
+            System.out.println("=====================================================================");
+            System.out.println("1 - TURN ON CAR || 2 - TURN OFF CAR");
+            System.out.println("3 - SPEED UP || 4 - SLOW DOWN");
+            System.out.println("5 - TURN RIGH || 6 - TURN LEFT");
+            System.out.println("7 - CHECK SPEED || 8 - CHANGE MARCH");
             System.out.println("PRESS 0 TO GET OUT OF THE CAR");
+            System.out.println("___________________________________________________");
             op = scanner.nextInt();
 
             switch (op) {
@@ -35,5 +37,8 @@ public class App {
                 default -> System.out.println("INVALID OPTION");
             }
         } while(op != 0);
+
+        
     }
+
 }

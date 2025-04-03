@@ -33,16 +33,80 @@ public class Car {
 
     public void speedUp() {
         if (this.carOn) {
-            speed++;
+            switch (march) {
+                case 0 -> System.out.println("Car in neutral, change march");
+                case 1 -> {
+                    if (speed >= 0 && speed < 20)
+                        speed += 5;
+                    else 
+                        System.out.println("Put in march 2");
+                }
+
+                case 2 -> {
+                    if (speed >= 20 && speed < 40)
+                        speed += 5;
+                    else 
+                        System.out.println("Put in march 3");
+                }
+
+                case 3 -> {
+                    if (speed >= 40 && speed < 60)
+                        speed += 5;
+                    else 
+                        System.out.println("Put in march 4");
+                }
+
+                case 4 -> {
+                    if (speed >= 60 && speed < 80)
+                        speed += 5;
+                    else 
+                        System.out.println("Put in march 5");
+                }
+
+                case 5 -> {
+                    if (speed >= 80 && speed < 100)
+                        speed += 5;
+                    else 
+                        System.out.println("Put in march 6");
+                }
+
+                case 6 -> {
+                    if (speed >= 100 && speed < 120)
+                        speed += 5;
+                    else 
+                        System.out.println("Max speed!");
+                }
+                        
+                
+            }
         } else {
             System.out.println("Alert! Start the car!");
         }
     }
 
     public void slowDown() {
-        if (this.carOn && speed > 0)
-            this.speed--;
-        else {
+        if (this.carOn && speed > 0) {
+            this.speed -= 5;
+            if (speed == 0) {
+                System.out.println("Car in neutral!");
+                setMarch(0);
+            }
+            if(speed > 0 && speed <= 20) 
+                setMarch(1);
+
+            if (speed > 20 && speed <= 40) {
+                setMarch(2);
+            }
+
+            if (speed > 40 && speed <= 60)
+                setMarch(3);
+            
+            if (speed > 60 && speed <= 80)
+                setMarch(4);
+
+            if (speed > 80 && speed <= 100)
+                setMarch(5);
+        } else {
             System.out.println("Alert! Start the car!");
         }
     }
@@ -78,8 +142,67 @@ public class Car {
     }
 
     public void changeMarch() {
-        march++;
+
+        switch (march) {
+            case 0 -> march++;
+            case 1 -> {
+                if (speed == 20) {
+                    march++;
+                } else {
+                    System.out.println("is not necessary to change!");
+                }
+            }
+            case 2 -> {
+                if (speed == 40) {
+                    march++;
+                } else {
+                    System.out.println("is not necessary to change!");
+                }
+            }
+            case 3 -> {
+                if (speed == 60) {
+                    march++;
+                } else {
+                    System.out.println("is not necessary to change!");
+                }
+            }
+
+            case 4 -> {
+                if (speed == 80) {
+                    march++;
+                } else {
+                    System.out.println("is not necessary to change!");
+                }
+            }
+
+            case 5 -> {
+                if (speed == 100) {
+                    march++;
+                } else {
+                    System.out.println("is not necessary to change!");
+                }
+            }
+
+            case 6 -> {
+                System.out.println("it's the maxim speed!");
+            }
+        }
     }
 
+    public boolean isCarOn() {
+        return carOn;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getMarch() {
+        return march;
+    }
+
+    public void setMarch(int march) {
+        this.march = march;
+    }
 
 }
